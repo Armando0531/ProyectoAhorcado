@@ -19,7 +19,26 @@ class Validacion:
                 else:
                     print("Solamente enteros positivos, intente de nuevo: ")
         return r
-
+    
+    def validacionPalabra(self):
+        palabra = str()
+        palabraValidada = str()
+        l = ''
+        while True:
+            palabra = str(input().lower())
+            if len(palabra)>0:
+                for i in range(len(palabra)):
+                    l = ord(palabra[i])
+                    if 93<l and l<123:
+                        palabraValidada+=palabra[i]
+                if len(palabraValidada)==0:
+                    print("Palabra no valida, intente de nuevo:")
+                else:
+                    break
+            else:
+                print("Entrada no valida, intente de nuevo:")
+        return palabraValidada
+    
 class ManipulacionArchivo:
     def verificar(self):
         if not os.path.isfile("palabras.txt"): 
