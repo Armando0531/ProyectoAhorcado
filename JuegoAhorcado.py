@@ -5,6 +5,21 @@ Created on 2 nov. 2021
 '''
 import os
 
+class Validacion:
+    
+    def validacionNatural(self):
+        while True:
+            try:
+                r = int(input())
+            except:
+                print("Solamente numeros: ")
+            else:
+                if r>0:
+                    break
+                else:
+                    print("Solamente enteros positivos, intente de nuevo: ")
+        return r
+
 class ManipulacionArchivo:
     def verificar(self):
         if not os.path.isfile("palabras.txt"): 
