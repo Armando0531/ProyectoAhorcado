@@ -28,6 +28,14 @@ class ManipulacionArchivo:
                 print("Cantidad de palabras: "+str(lineas))
             return False
     
+    def borrar(self):
+        if os.path.isfile("palabras.txt"):
+            os.remove("palabras.txt")
+            
+        with open("palabras.txt", "w+") as f:
+            pass
+        print("El archivo fue borrado exitosamente")
+        
 class JuegoAhorcado:
 
     def cargarPalabras(self,listaPalabras):
