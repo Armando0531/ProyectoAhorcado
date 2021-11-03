@@ -3,6 +3,31 @@ Created on 2 nov. 2021
 
 @author: arman
 '''
+import os
+
+class ManipulacionArchivo:
+    def verificar(self):
+        if not os.path.isfile("palabras.txt"): 
+            print("No existe el archivo")
+            archivo = open("palabras.txt","w+")
+            archivo.close()
+            if os.path.isfile("palabras.txt"):
+                print("El archivo fue creado exitosamente")
+                
+        if not os.path.getsize("palabras.txt") > 0:
+            print("El archivo esta vacio")
+            return True
+        
+        else:
+            with open("palabras.txt", "r+") as f:
+                lineas = 0
+                for l in f:
+                    
+                    if l != "\n":
+                        lineas+=1
+                print("Cantidad de palabras: "+str(lineas))
+            return False
+    
 class JuegoAhorcado:
 
     def cargarPalabras(self,listaPalabras):
