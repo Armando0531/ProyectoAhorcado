@@ -84,6 +84,18 @@ class ManipulacionArchivo:
                 f.write(i+"\n")
                 
         print(str(cnt)+" palabras cargadas correctamente \n")
+    def ordenar(self):
+        palabras=[]
+        with open("palabras.txt", "r") as f:
+            for l in f:
+                tmp = l.split()
+                for i in tmp:
+                    palabras.append(i)
+                    
+        palabras.sort()
+        with open("palabras.txt", "w") as f:
+            for i in palabras:
+                f.write(i+"\n")
         
 class JuegoAhorcado:
 
