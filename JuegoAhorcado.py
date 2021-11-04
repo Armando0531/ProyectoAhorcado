@@ -70,6 +70,21 @@ class ManipulacionArchivo:
             pass
         print("El archivo fue borrado exitosamente")
         
+    def guardar(self):
+        palabras = []
+        print("Cantidad de palabras a ingresar:")
+        cnt = Validacion.validacionNatural(Validacion)
+        for i in range(cnt):
+            print("Palabra "+str(i+1)+':')
+            palabras.append(Validacion.validacionPalabra(Validacion))
+            
+        palabras.sort()
+        with open("palabras.txt", "a+") as f:
+            for i in palabras:
+                f.write(i+"\n")
+                
+        print(str(cnt)+" palabras cargadas correctamente \n")
+        
 class JuegoAhorcado:
 
     def cargarPalabras(self,listaPalabras):
