@@ -39,6 +39,12 @@ class Validacion:
                 print("Entrada no valida, intente de nuevo:")
         return palabraValidada
     
+class Oportunidades:
+    def getOportunidades(self):
+        return self.__oportunidades
+    def setOportunidades(self, oportunidades):
+        self.__oportunidades=oportunidades
+        
 class ManipulacionArchivo:
     def verificar(self):
         if not os.path.isfile("palabras.txt"): 
