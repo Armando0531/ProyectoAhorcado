@@ -96,6 +96,18 @@ class ManipulacionArchivo:
         with open("palabras.txt", "w") as f:
             for i in palabras:
                 f.write(i+"\n")
+    def cargar(self):
+        print("Cargando lista de palabras desde el archivo...")
+        self.ordenar(ManipulacionArchivo)
+        palabras=[]
+        with open("palabras.txt", "r") as f:
+            for l in f:
+                tmp = l.split()
+                for i in tmp:
+                    palabras.append(str(i).upper())
+                    
+        print(str(len(palabras))+" palabras cargadas")
+        return palabras
         
 class JuegoAhorcado:
 
