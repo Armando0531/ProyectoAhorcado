@@ -40,10 +40,18 @@ class Validacion:
         return palabraValidada
     
 class Oportunidades:
+    def __init__(self):
+        self.__oportunidades = 10
+        
     def getOportunidades(self):
         return self.__oportunidades
+    
     def setOportunidades(self, oportunidades):
         self.__oportunidades=oportunidades
+        
+    def decrementar(self):
+        print("Lo siento, esa letra no esta en la palabra secreta:",end=" ")
+        self.setOportunidades((self.getOportunidades()-1))
         
 class ManipulacionArchivo:
     def verificar(self):
