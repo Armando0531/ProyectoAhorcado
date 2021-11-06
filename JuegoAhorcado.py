@@ -4,6 +4,7 @@ Created on 2 nov. 2021
 @author: arman
 '''
 import os
+import random
 
 class Validacion:
     
@@ -131,8 +132,9 @@ class JuegoAhorcado:
         self.oportunidades=Oportunidades()
     def cargarPalabras(self):
         return ManipulacionArchivo.cargar(ManipulacionArchivo)
-    def elegirPalabra(self):
-        return "palabra elegida + idioma"
+    def elegirPalabra(self, palabras):
+        x = random.randint(0,(len(palabras)-1))
+        return palabras[x]
     def inicioAhorcado(self,palabraSecreta,idioma):
         ganador=False
         palabraIdioma=palabraSecreta.split("-")
