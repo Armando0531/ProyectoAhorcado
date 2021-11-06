@@ -128,9 +128,8 @@ class ManipulacionArchivo:
         
 class JuegoAhorcado:
 
-    def cargarPalabras(self,listaPalabras):
-        palabras={""}
-        return palabras
+    def cargarPalabras(self):
+        return ManipulacionArchivo.cargar(ManipulacionArchivo)
     def elegirPalabra(self):
         return "palabra elegida + idioma"
     def inicioAhorcado(self,palabraSecreta,idioma):
