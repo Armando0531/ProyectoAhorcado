@@ -53,6 +53,9 @@ class Oportunidades:
         print("Lo siento, esa letra no esta en la palabra secreta:",end=" ")
         self.setOportunidades((self.getOportunidades()-1))
         
+    def mostrarOportunidades(self):
+        print("Te quedan "+str(self.getOportunidades())+" oportunidades para adivinar")
+        
 class ManipulacionArchivo:
     def verificar(self):
         if not os.path.isfile("palabras.txt"): 
