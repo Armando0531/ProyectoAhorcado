@@ -127,7 +127,8 @@ class ManipulacionArchivo:
         return palabras
         
 class JuegoAhorcado:
-
+    def __init__(self):
+        self.oportunidades=Oportunidades()
     def cargarPalabras(self):
         return ManipulacionArchivo.cargar(ManipulacionArchivo)
     def elegirPalabra(self):
