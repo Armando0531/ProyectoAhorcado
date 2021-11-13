@@ -142,6 +142,15 @@ class Pila:
             return ' '
         else:
             return self.letras.pop(0)
+
+    def anadir(self, letra):
+        lts=[]
+        lts.append(letra)
+        while not self.letras == []:
+            lts.append(self.letras.pop())
+            
+        lts.sort()
+        self.setLetras(lts)
         
 class JuegoAhorcado:
     def __init__(self):
