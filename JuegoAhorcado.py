@@ -151,6 +151,23 @@ class Pila:
             
         lts.sort()
         self.setLetras(lts)
+
+    def obtenerPalabraAdivinada(self,palabraSecreta):
+        lts = []
+        for i in palabraSecreta:
+            y=0
+            while not self.letras == []:
+                lt = self.extraer()
+                lts.append(lt)
+                if lt==i:
+                    y=1
+                    print(i,end=" ")
+                    break
+            while not lts == []:
+                self.anadir(lts.pop(0))
+            if y==0:
+                print("_",end=" ")    
+        print("\n\n")
         
 class JuegoAhorcado:
     def __init__(self):
