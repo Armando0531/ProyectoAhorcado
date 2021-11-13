@@ -136,6 +136,12 @@ class Pila:
     
     def setLetras(self, letras):
         self.letras=letras
+    
+    def extraer(self):
+        if self.getLetras() == []:
+            return ' '
+        else:
+            return self.letras.pop(0)
         
 class JuegoAhorcado:
     def __init__(self):
