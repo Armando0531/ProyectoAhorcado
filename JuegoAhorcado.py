@@ -128,7 +128,9 @@ class ManipulacionArchivo:
         return palabras
         
 class Pila:
-    
+    def __init__(self):
+        self.letras=[]
+        
     def getLetras(self):
         return self.letras
     
