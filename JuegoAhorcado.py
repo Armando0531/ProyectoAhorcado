@@ -127,6 +127,14 @@ class ManipulacionArchivo:
         print(str(len(palabras))+" palabras cargadas")
         return palabras
         
+class Pila:
+    
+    def getLetras(self):
+        return self.letras
+    
+    def setLetras(self, letras):
+        self.letras=letras
+        
 class JuegoAhorcado:
     def __init__(self):
         self.oportunidades=Oportunidades()
