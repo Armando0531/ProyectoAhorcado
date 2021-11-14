@@ -168,6 +168,14 @@ class Pila:
             if y==0:
                 print("_",end=" ")    
         print("\n\n")
+
+class LetrasDisponibles:
+    
+    def getLetrasDisponibles(self):
+        return self.__letrasDisponibles
+    
+    def setLetrasDisponibles(self, letrasDisponibles):
+        self.__letrasDisponibles=letrasDisponibles
         
 class JuegoAhorcado:
     def __init__(self):
