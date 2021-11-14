@@ -171,6 +171,9 @@ class Pila:
 
 class LetrasDisponibles:
     
+    def __init__(self):
+        self.__letrasDisponibles=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    
     def getLetrasDisponibles(self):
         return self.__letrasDisponibles
     
