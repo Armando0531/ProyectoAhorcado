@@ -8,6 +8,20 @@ import random
 
 class Validacion:
     
+    def validacionLetra(self):
+        c = ''
+        while True:
+            c = str(input()).lower()
+            if len(c)==1:
+                b=ord(c[0])
+                if 93<b and b<123:
+                    break
+                else:
+                    print("Caracter no valido, intente de nuevo:")
+            else:
+                print("Entrada no valida, intente de nuevo:")
+        return c
+    
     def validacionNatural(self):
         while True:
             try:
@@ -229,6 +243,7 @@ class JuegoAhorcado:
             print("Felicidades, has GANADO")
         else:
             print("NO has adivinado la palabra. La palabra secreta era: "+palabraSecreta) 
+            
     def seAdivinoPalabra(self,palabra,letrasIngresadas):
         return True
     def obtenerPalabraAdivinada(self,palabra,letrasIngresadas):
