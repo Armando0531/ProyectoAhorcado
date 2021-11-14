@@ -206,12 +206,29 @@ class JuegoAhorcado:
     def elegirPalabra(self, palabras):
         x = random.randint(0,(len(palabras)-1))
         return palabras[x]
-    def inicioAhorcado(self,palabraSecreta,idioma):
-        ganador=False
-        palabraIdioma=palabraSecreta.split("-")
-        palabraSecret=palabraIdioma[0]
-        idioma=palabraIdioma[1]
-        pass
+    def inicioAhorcado(self, palabraSecreta):
+        print("Bienvenido al juego del ahorcado \nEstoy pensando en una palabra de "+str(len(palabraSecreta))+" letras \n========\n")
+        letrasDisponibles = LetrasDisponibles()
+        letrasIngresadas = Pila()
+        while (self.oportunidades.getOportunidades()>0) and (not self.seAdivinoLaPalabra(palabraSecreta, letrasIngresadas)):
+            self.oportunidades.mostrarOportunidades()
+            letrasDisponibles.mostrarLetrasDisponibles()
+            print("Por favor ingresa una letra: ",end="")
+            letra = Validacion.validacionLetra(Validacion)
+            if letrasDisponibles.encontrarLetra(letra):
+                letrasIngresadas.anadir(letra)
+                if letra in palabraSecreta.lower():
+                    print("Bien hecho: ",end="")
+                else:
+                    self.oportunidades.decrementar()
+            else:
+                print("Ya ingresaste esa letra")
+            letrasIngresadas.obtenerPalabraAdivinada(palabraSecreta.lower())
+            
+        if self.seAdivinoLaPalabra(palabraSecreta, letrasIngresadas):
+            print("Felicidades, has GANADO")
+        else:
+            print("NO has adivinado la palabra. La palabra secreta era: "+palabraSecreta) 
     def seAdivinoPalabra(self,palabra,letrasIngresadas):
         return True
     def obtenerPalabraAdivinada(self,palabra,letrasIngresadas):
