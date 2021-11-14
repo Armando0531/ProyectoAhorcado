@@ -180,6 +180,13 @@ class LetrasDisponibles:
     def setLetrasDisponibles(self, letrasDisponibles):
         self.__letrasDisponibles=letrasDisponibles
         
+    def mostrarLetrasDisponibles(self):
+        print("Letras disponibles: ",end="")
+        letras=self.getLetrasDisponibles()
+        for i in letras:
+            print(i, end=" ")  
+        print()
+        
 class JuegoAhorcado:
     def __init__(self):
         self.oportunidades=Oportunidades()
