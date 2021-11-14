@@ -186,7 +186,18 @@ class LetrasDisponibles:
         for i in letras:
             print(i, end=" ")  
         print()
-        
+
+    def encontrarLetra(self, letra):
+        letras=self.getLetrasDisponibles()
+        x = 0
+        for i in range (len(letras)):
+            if letra == letras[i]:
+                letras[i]='_'
+                x=1
+                break
+        self.setLetrasDisponibles(letras)
+        return x==1
+    
 class JuegoAhorcado:
     def __init__(self):
         self.oportunidades=Oportunidades()
