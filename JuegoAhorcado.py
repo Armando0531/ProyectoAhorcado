@@ -275,6 +275,7 @@ class PruebaJuegoAhorcado:
             opc = Validacion.validacionNatural(Validacion)
             if(opc==1):
                 ManipulacionArchivo.verificar(ManipulacionArchivo)
+                ManipulacionArchivo.ordenar(ManipulacionArchivo)
             elif(opc==2):
                 ManipulacionArchivo.guardar(ManipulacionArchivo)
             elif(opc==3):
@@ -292,3 +293,5 @@ class PruebaJuegoAhorcado:
             else:
                 print("Opcion no valida")
 
+pja = PruebaJuegoAhorcado()
+pja.menuOpciones()
