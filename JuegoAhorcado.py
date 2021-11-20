@@ -259,16 +259,6 @@ class JuegoAhorcado:
                 letrasIngresadas.anadir(lts.pop(0))
             x*=y
         return x==1
-    
-    def seAdivinoPalabra(self,palabra,letrasIngresadas):
-        return True
-    def obtenerPalabraAdivinada(self,palabra,letrasIngresadas):
-        carac="!#$%&/()=?�'<>-_.:,;}{~+*"
-        palabraCodificada=""
-        for i in range(i,len(palabra)):
-            palabraCodificada=palabraCodificada+carac[i]
-    def obtenerLetrasDisponibles(self,letrasIngresadas):
-        return "Letras disponibles"
 
 
 
