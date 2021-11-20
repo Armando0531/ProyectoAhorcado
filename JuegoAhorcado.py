@@ -243,7 +243,23 @@ class JuegoAhorcado:
             print("Felicidades, has GANADO")
         else:
             print("NO has adivinado la palabra. La palabra secreta era: "+palabraSecreta) 
-            
+    def seAdivinoLaPalabra(self, palabraSecreta, letrasIngresadas):
+        x=1
+        palabraSecreta=palabraSecreta.lower()
+        lts = []
+        for i in palabraSecreta:
+            y=0
+            while not letrasIngresadas.getLetras() == []:
+                lt = letrasIngresadas.extraer()
+                lts.append(lt)
+                if lt==i:
+                    y=1
+                    break
+            while not lts == []:
+                letrasIngresadas.anadir(lts.pop(0))
+            x*=y
+        return x==1
+    
     def seAdivinoPalabra(self,palabra,letrasIngresadas):
         return True
     def obtenerPalabraAdivinada(self,palabra,letrasIngresadas):
