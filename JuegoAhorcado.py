@@ -128,6 +128,7 @@ class ManipulacionArchivo:
         with open("palabras.txt", "w") as f:
             for i in palabras:
                 f.write(i+"\n")
+                
     def cargar(self):
         print("Cargando lista de palabras desde el archivo...")
         self.ordenar(ManipulacionArchivo)
@@ -262,25 +263,32 @@ class JuegoAhorcado:
 
 
 
-#------------------------------------------------------Pruebas
-op=""
-while(op!="5"):
-    print("Elige la opcion que deseas")
-    print("1) Verificar Archivo")
-    print("2) Llenar Archivo con palabras")
-    print("3) Borrar archivo")
-    print("4) Jugar")
-    print("5) Salir")
-    op=input()
-    if(op=="1"):
-        print("1")
-    elif(op=="2"):
-        print("op 2")
-    elif(op=="3"):
-        print("op 3")
-    elif(op=="4"):
-        print("op 4")
-    elif(op=="5"):
-        print("Saliendo.....")
-    else:
-        print("La opcion que seleccionaste no existe prueba otra opcion")
+class PruebaJuegoAhorcado:
+    def menuOpciones(self):
+        while True:  
+            print("Elige la opcion que deseas")
+            print("1) Verificar Archivo")
+            print("2) Llenar Archivo con palabras")
+            print("3) Borrar Archivo")
+            print("4) Jugar")
+            print("5) Salir")  
+            opc = Validacion.validacionNatural(Validacion)
+            if(opc==1):
+                ManipulacionArchivo.verificar(ManipulacionArchivo)
+            elif(opc==2):
+                ManipulacionArchivo.guardar(ManipulacionArchivo)
+            elif(opc==3):
+                ManipulacionArchivo.borrar(ManipulacionArchivo)
+            elif(opc==4):
+                if ManipulacionArchivo.verificar(ManipulacionArchivo):
+                    ManipulacionArchivo.guardar(ManipulacionArchivo)
+                ja = JuegoAhorcado()
+                palabras = ja.cargarPalabras()
+                palabraSecreta = ja.elegirPalabra(palabras)
+                ja.inicioAhorcado(palabraSecreta)
+            elif(opc==5):
+                print("Gracias por jugar")
+                break
+            else:
+                print("Opcion no valida")
+
