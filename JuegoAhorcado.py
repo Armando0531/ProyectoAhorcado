@@ -124,7 +124,13 @@ class ManipulacionArchivo:
                 for i in tmp:
                     palabras.append(i)
                     
-        palabras.sort()
+        for i in range(1, len(palabras)):
+            for j in range (len(palabras)-1):
+                if palabras[j].upper()>palabras[j+1].upper():
+                    temp = palabras[j]
+                    palabras[j] = palabras[j+1]
+                    palabras[j+1] = temp  
+
         with open("palabras.txt", "w") as f:
             for i in palabras:
                 f.write(i+"\n")
