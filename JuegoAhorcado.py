@@ -116,23 +116,52 @@ class ManipulacionArchivo:
                 f.write(i+"\n")
                 
         print(str(cnt)+" palabras cargadas correctamente \n")
+        
+    def ordenamientoMezclaDirecta(self,array):
+        
+        mitad=len(array)//2
+        
+        if len(array)>=2:
+            arregloIz=array[mitad:]
+           
+            arregloDer=array[:mitad]
+            
+
+            array.clear()
+            
+            self.ordenamientoMezclaDirecta(self,arregloIz)
+            
+            self.ordenamientoMezclaDirecta(self,arregloDer)
+            
+            #Hasta aqui es la divicion de todos los elemntos hasta que llege a ser igual a 1
+            while(len(arregloDer)>0 and len(arregloIz)>0):
+                if(arregloIz[0]< arregloDer[0]):# si la pocicion de la izquierda es menor a la derecha
+                    array.append(arregloIz.pop(0))
+                else:
+                    array.append(arregloDer.pop(0))
+            #Hace que siempre se este actualizando ya que se elimina la pocicion
+            
+            #Ahora esto es por si llegan a quedar elementos sobrantes
+            while len(arregloIz)>0:
+                array.append(arregloIz.pop(0))
+            
+            while len(arregloDer)>0:
+                array.append(arregloDer.pop(0))
+        
+        return array    
+    
     def ordenar(self):
-        palabras=[]
+        palabras=""
         with open("palabras.txt", "r") as f:
             for l in f:
                 tmp = l.split()
                 for i in tmp:
-                    palabras.append(i)
+                    palabras=palabras+i+"/"
                     
-        for i in range(1, len(palabras)):
-            for j in range (len(palabras)-1):
-                if palabras[j].upper()>palabras[j+1].upper():
-                    temp = palabras[j]
-                    palabras[j] = palabras[j+1]
-                    palabras[j+1] = temp  
-
+        vector=palabras.split("/")
+        vector2= self.ordenamientoMezclaDirecta(self,array=palabras.split("/"))
         with open("palabras.txt", "w") as f:
-            for i in palabras:
+            for i in vector2:
                 f.write(i+"\n")
                 
     def cargar(self):
@@ -147,6 +176,7 @@ class ManipulacionArchivo:
                     
         print(str(len(palabras))+" palabras cargadas")
         return palabras
+        
         
 class Pila:
     def __init__(self):
@@ -292,6 +322,7 @@ class PruebaJuegoAhorcado:
                 ja = JuegoAhorcado()
                 palabras = ja.cargarPalabras()
                 palabraSecreta = ja.elegirPalabra(palabras)
+
                 ja.inicioAhorcado(palabraSecreta)
             elif(opc==5):
                 print("Gracias por jugar")
